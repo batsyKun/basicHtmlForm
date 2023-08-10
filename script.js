@@ -12,7 +12,8 @@
 //       }
 //     });
 //   });
-  let userID 
+  let userID ;
+  let value = document.getElementById("useridHidden");
   document.addEventListener("DOMContentLoaded", function() {
   const form = document.querySelector("form");
 
@@ -47,7 +48,8 @@
       .then(response => response.json())
       .then(data => {
         const submittedData = data[userID-1];
-        console.log("View Submitted Data:", submittedData);
+        console.log(typeof(submittedData))
+        value.textContent = JSON.stringify(submittedData);
       })
       .catch(error => {
         console.error("Error:", error);
